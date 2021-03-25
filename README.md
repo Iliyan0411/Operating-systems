@@ -1,1 +1,1 @@
-Shell and C programs from OS course.
+C and Shell programs from OS course
