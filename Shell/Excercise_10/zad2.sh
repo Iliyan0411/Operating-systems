@@ -11,7 +11,6 @@ do
 	ls -l $file | grep -q rw-rw-rw-
 	if [ $? -eq 0 ]
 	then
-		echo here
 		cp $file $1
 	fi
 done
