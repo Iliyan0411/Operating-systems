@@ -1,12 +1,17 @@
-ls $1 | grep .c > sources.txt
-ls $2 | grep .c >> sources.txt
+touch sources.txt
+cd $1
+echo *.c > ./../sources.txt
+cd ..
+cd $2
+echo *.c >> ./../sources.txt
+cd ..
 
-C_files=$(wc -l sources.txt | cut -d " " -f 1)
-
-if [ $C_files -gt 20 ]
+cfiles=$(wc -w sources.txt)
+if [ $cfiles -gt 20 ]
 then
 	chmod 0444 sources.txt
 else
-	echo $C_files
+	echo $cfiles
 	rm sources.txt
 fi
+
