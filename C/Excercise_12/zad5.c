@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     
     read(fd, str, size);
     str[size] = '\0';
-    printf("%s", str);
+    printf("%s\n", str);
 
     close(fd); 
     free(str);
