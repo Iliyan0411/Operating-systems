@@ -16,7 +16,6 @@ int main(int argc, char **argv)
     }
     else if(pid > 0){
         wait(&status);
-        printf("\nChild's ID: %d\n", getpid());
         printf("Exit code: %d\n", status);
     }
     else{
@@ -27,7 +26,8 @@ int main(int argc, char **argv)
         }
         char end[5] = "NULL";
         args[argc] = end;
-
+        
+        printf("\nChild's ID: %d\n", getpid());
         exit(execvp(argv[1], args));
     }
 
