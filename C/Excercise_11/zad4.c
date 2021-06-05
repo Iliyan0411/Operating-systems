@@ -24,9 +24,8 @@ void zad4(const char *fname1, const char *fname2)
     while(i < strlen(str))
     {
         if(counter < 3){
-            new_str[curr] = str[i];
-            curr += 1;
-            counter += 1;
+            new_str[curr++] = str[i];
+            counter++;
 
             if(str[i] == '\n'){
                 counter = 0;
@@ -45,7 +44,7 @@ void zad4(const char *fname1, const char *fname2)
     free(str);
 
     int fd2 = open(fname2, O_WRONLY, O_TRUNC);
-    write(fd2, new_str, strlen(new_str));
+    write(fd2, new_str, curr);
 
     close(fd2);
     free(new_str);

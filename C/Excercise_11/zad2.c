@@ -10,13 +10,11 @@ int main()
     int fd = open("f25", O_RDONLY);
 
     int st = 1;
-    int offset = 0;
     while(st > 0)
     {
         char *str = (char *) calloc(15, sizeof(char));
         st = read(fd, str, 10);
-        offset += 10;
-        lseek(fd, offset, SEEK_SET);
+        lseek(fd, 10, SEEK_CUR);
 
         printf("%d \n", st);
     }

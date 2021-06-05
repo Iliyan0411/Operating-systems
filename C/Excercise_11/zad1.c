@@ -11,12 +11,14 @@ int main()
     int fd1 = open("f1", O_RDONLY);
     int fd2 = open("f2", O_WRONLY);
     
+    int size = lseek(fd1, 0, SEEK_END);
+    lseek(fd1, 0, SEEK_SET);
+    
+    char *str = (char *) calloc(size+1, sizeof(char));
+    read(fd1, str, size);
+    str[size] = '\0';
 
-    char *str = (char *) calloc(100, sizeof(char));
-    int ln = read(fd1, str, 15);
-    str[ln] = '\0';
-
-    write(fd2, str, strlen(str));
+    write(fd2, str, size);
 
     close(fd1); 
     close(fd2);
