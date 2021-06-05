@@ -15,12 +15,12 @@ int main()
     }
     else if(pid == 0){
         sleep(1);
+        printf("Child's ID is %d: \n", getpid());
         printf("Bye from the child.\n");
     }
     else{
-        printf("Parent's ID is %d: \n", getppid());
-        printf("Child's ID is %d: \n", getpid());
         printf("Hello from parent.\n");
+        printf("Parent's ID is %d: \n", getpid());
     }
 
     return 0;
